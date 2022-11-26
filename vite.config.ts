@@ -1,19 +1,21 @@
-import { defineConfig } from "vite";
+import { defineConfig, loadEnv } from "vite";
 import solidPlugin from "vite-plugin-solid";
 import { VitePWA } from "vite-plugin-pwa";
 import manifest from "./manifest.json";
 
 export default defineConfig(({ mode }) => {
+	const env = loadEnv(mode, process.cwd(), "");
 	return {
 		plugins: [
 			solidPlugin(),
 			VitePWA({
-				// registerType: "autoUpdate",
 				strategies: "injectManifest",
-				srcDir: "./",
+				srcDir: "./src",
 				filename: "sw.ts",
+				outDir: "./dist",
 				devOptions: {
 					enabled: mode === "development",
+					type: "module",
 				},
 				manifest,
 			}),
@@ -22,8 +24,6 @@ export default defineConfig(({ mode }) => {
 			port: 3000,
 			host: "localhost",
 		},
-		build: {
-			target: "esnext",
-		},
+		base: env.VITE_BASE,
 	};
 });

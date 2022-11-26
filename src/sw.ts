@@ -1,3 +1,5 @@
+// import { precacheAndRoute } from "workbox-precaching";
+
 importScripts("https://cdn.jsdelivr.net/npm/idb-keyval@6/dist/umd.js");
 
 type ItemType = {
@@ -6,6 +8,13 @@ type ItemType = {
 	lastName: string;
 	bday: string;
 };
+
+// precacheAndRoute(self.__WB_MANIFEST);
+
+/* DONT REMOVE THIS CONSOLE.LOG FOR NOW
+ * look at https://github.com/vite-pwa/vite-plugin-pwa/issues/302
+ */
+console.log(self.__WB_MANIFEST);
 
 const getTodaysBirthdays = async (): Promise<ItemType[]> => {
 	if (!self.indexedDB) return [];
