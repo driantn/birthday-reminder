@@ -1,7 +1,8 @@
-import { values } from "https://cdn.jsdelivr.net/npm/idb-keyval@6/+esm";
+// import { values } from "https://cdn.jsdelivr.net/npm/idb-keyval@6/+esm";
 // import { precacheAndRoute } from "workbox-precaching";
 
-// importScripts("https://cdn.jsdelivr.net/npm/idb-keyval@6/dist/umd.js");
+importScripts("https://cdn.jsdelivr.net/npm/idb-keyval@6/dist/umd.js");
+
 type ItemType = {
 	id: string;
 	firstName: string;
@@ -18,7 +19,7 @@ console.log(self.__WB_MANIFEST);
 
 const getTodaysBirthdays = async (): Promise<ItemType[]> => {
 	if (!self.indexedDB) return [];
-	const data = await values();
+	const data = await self.idbKeyval.values();
 	return data;
 };
 

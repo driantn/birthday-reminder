@@ -10,12 +10,13 @@ export default defineConfig(({ mode }) => {
 			solidPlugin(),
 			VitePWA({
 				strategies: "injectManifest",
+				injectRegister: "inline",
 				srcDir: "./src",
 				filename: "sw.ts",
 				outDir: "./dist",
 				devOptions: {
 					enabled: mode === "development",
-					type: "module",
+					// type: "module",
 				},
 				manifest,
 			}),
