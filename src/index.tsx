@@ -54,7 +54,7 @@ onMount(async () => {
 
 render(
 	() => (
-		<Router>
+		<Router base={import.meta.env.VITE_BASE}>
 			<Routes>
 				<Route path="/user">
 					<Route path="/" component={User} />
