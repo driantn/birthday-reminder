@@ -33,7 +33,7 @@ const getDate = () =>
 
 self.addEventListener("periodicsync", async (event: any) => {
 	console.log("log", event);
-	if (event.tag === "birthdays-for-all") {
+	if (event.tag === "birthday-reminder") {
 		const data = await getTodaysBirthdays();
 		const today = getDate();
 		const bdays = data.filter((item) => item.bday === today);

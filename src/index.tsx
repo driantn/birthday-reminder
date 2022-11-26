@@ -19,7 +19,7 @@ onMount(async () => {
 		if (status.state === "granted") {
 			try {
 				// Register new sync every 24 hours
-				await (registration as any).periodicSync.register("bithdays-for-all", {
+				await (registration as any).periodicSync.register("birthday-reminder", {
 					minInterval: 24 * 60 * 60 * 1000, // 1 day
 				});
 				console.log("Periodic background sync registered!");
@@ -38,7 +38,7 @@ onMount(async () => {
 			if (Notification.permission === "default") {
 				Notification.requestPermission().then((permission) => {
 					if (permission === "granted") {
-						const title = "Birthdays for all";
+						const title = "Birthday Reminder";
 						const options = {
 							body: "Notifications enabled",
 							icon: "/logo64.png",
