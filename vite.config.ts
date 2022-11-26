@@ -1,10 +1,11 @@
 import { defineConfig, loadEnv } from "vite";
 import solidPlugin from "vite-plugin-solid";
 import { VitePWA } from "vite-plugin-pwa";
-import manifest from "./manifest.json";
+import manifest from "./src/manifest";
 
 export default defineConfig(({ mode }) => {
 	const env = loadEnv(mode, process.cwd(), "");
+
 	return {
 		plugins: [
 			solidPlugin(),
@@ -18,7 +19,7 @@ export default defineConfig(({ mode }) => {
 					enabled: mode === "development",
 					// type: "module",
 				},
-				manifest,
+				manifest: manifest(env.VITE_BASE),
 			}),
 		],
 		server: {
