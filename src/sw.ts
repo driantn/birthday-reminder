@@ -23,29 +23,30 @@ const getTodaysBirthdays = async (): Promise<ItemType[]> => {
 	return data;
 };
 
-const getDate = () =>
-	new Date()
-		.toLocaleDateString()
-		.replaceAll("/", "-")
-		.split("-")
-		.reverse()
-		.concat()
-		.join("-");
-
 self.addEventListener("periodicsync", async (event: any) => {
-	console.log("log", event);
 	if (event.tag === "birthday-reminder") {
 		const data = await getTodaysBirthdays();
-		const today = getDate();
-		const bdays = data.filter((item) => item.bday === today);
-
-		bdays.forEach((bday) => {
-			const title = "New Birthay";
-			const options = {
-				body: `It's ${bday.firstName} ${bday.lastName} birthday`,
-				icon: "/logo64.png",
-			};
-			self.registration.showNotification(title, options);
+		const now = new Date();
+		const bdays = data.filter((item) => {
+			const bday = new Date(item.bday);
+			return (
+				now.getDate() === bday.getDate() &&
+				now.getMonth() + 1 === bday.getMonth() + 1
+			);
 		});
+
+		let body = "";
+
+		bdays.forEach((bday, index) => {
+			body += `${index + 1}. It's ${bday.firstName} ${bday.lastName} birthday`;
+			body += "\n";
+		});
+		const title = `New Birthay`;
+		const options = {
+			body,
+			icon: "/logo64.png",
+		};
+
+		self.registration.showNotification(title, options);
 	}
 });
