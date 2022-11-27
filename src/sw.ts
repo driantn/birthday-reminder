@@ -1,4 +1,4 @@
-import { values } from "https://cdn.jsdelivr.net/npm/idb-keyval@6/+esm";
+import { values } from "idb-keyval";
 import { precacheAndRoute } from "workbox-precaching";
 
 type ItemType = {
