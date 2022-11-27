@@ -10,7 +10,7 @@ export default defineConfig(({ mode }) => {
 		plugins: [
 			solidPlugin(),
 			VitePWA({
-				registerType: "autoUpdate",
+				registerType: "prompt",
 				strategies: "injectManifest",
 				injectRegister: "inline",
 				srcDir: "./src",

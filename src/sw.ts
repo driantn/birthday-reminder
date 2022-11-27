@@ -1,5 +1,6 @@
 import { values } from "idb-keyval";
 import { cleanupOutdatedCaches, precacheAndRoute } from "workbox-precaching";
+import { clientsClaim } from "workbox-core";
 
 type ItemType = {
 	id: string;
@@ -7,6 +8,9 @@ type ItemType = {
 	lastName: string;
 	bday: string;
 };
+
+self.skipWaiting();
+clientsClaim();
 
 precacheAndRoute(self.__WB_MANIFEST);
 cleanupOutdatedCaches();
