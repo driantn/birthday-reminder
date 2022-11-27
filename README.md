@@ -1,3 +1,8 @@
+## Important
+
+For the reminder to work you will need to have Background Sync permission enabled in your browser.
+Better use a Chromium browser for it
+
 ## Usage
 
 Those templates dependencies are maintained via [pnpm](https://pnpm.io) via `pnpm up -Lri`.

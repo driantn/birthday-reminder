@@ -2,6 +2,7 @@
 	"name": "birthday-reminder",
 	"version": "0.0.0",
 	"description": "",
+	"module": "true",
 	"scripts": {
 		"start": "vite",
 		"dev": "vite",

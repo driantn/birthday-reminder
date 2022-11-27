@@ -15,7 +15,6 @@ onMount(async () => {
 		const status = await navigator.permissions.query({
 			name: "periodic-background-sync" as any,
 		});
-
 		if (status.state === "granted") {
 			try {
 				// Register new sync every 24 hours
@@ -24,13 +23,13 @@ onMount(async () => {
 				});
 				console.log("Periodic background sync registered!");
 			} catch (e) {
-				console.error(`Periodic background sync failed:\nx${e}`);
+				alert(`Periodic background sync failed:\nx${e}`);
 			}
 		} else {
-			console.info("Periodic background sync is not granted.");
+			alert("Periodic background sync is not granted.");
 		}
 	} else {
-		console.log("Periodic background sync is not supported.");
+		alert("Periodic background sync is not supported.");
 	}
 
 	const getNotificationPermission = () => {

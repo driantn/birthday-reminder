@@ -17,7 +17,7 @@ export default defineConfig(({ mode }) => {
 				outDir: "./dist",
 				devOptions: {
 					enabled: mode === "development",
-					// type: "module",
+					type: "module",
 				},
 				manifest: manifest(env.VITE_BASE),
 			}),

@@ -1,7 +1,5 @@
-// import { values } from "https://cdn.jsdelivr.net/npm/idb-keyval@6/+esm";
-// import { precacheAndRoute } from "workbox-precaching";
-
-importScripts("https://cdn.jsdelivr.net/npm/idb-keyval@6/dist/umd.js");
+import { values } from "https://cdn.jsdelivr.net/npm/idb-keyval@6/+esm";
+import { precacheAndRoute } from "workbox-precaching";
 
 type ItemType = {
 	id: string;
@@ -10,16 +8,11 @@ type ItemType = {
 	bday: string;
 };
 
-// precacheAndRoute(self.__WB_MANIFEST);
-
-/* DONT REMOVE THIS CONSOLE.LOG FOR NOW
- * look at https://github.com/vite-pwa/vite-plugin-pwa/issues/302
- */
-console.log(self.__WB_MANIFEST);
+precacheAndRoute(self.__WB_MANIFEST);
 
 const getTodaysBirthdays = async (): Promise<ItemType[]> => {
 	if (!self.indexedDB) return [];
-	const data = await self.idbKeyval.values();
+	const data = await values();
 	return data;
 };
 
@@ -34,6 +27,8 @@ self.addEventListener("periodicsync", async (event: any) => {
 				now.getMonth() + 1 === bday.getMonth() + 1
 			);
 		});
+
+		if (!bdays.length) return;
 
 		let body = "";
 
