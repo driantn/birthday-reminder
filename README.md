@@ -1,7 +1,10 @@
 ## Important
 
 For the reminder to work you will need to have Background Sync permission enabled in your browser.
-Better use Chrome browser for it
+Better use Chrome browser for it.
+
+Also after opening the page it will require permission for notifications and also you will need to install/add it to home screen for it
+to work.
 
 https://driantn.github.io/birthday-reminder/
 

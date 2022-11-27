@@ -33,15 +33,15 @@ const manifest = (base: string) => ({
 			sizes: "512x512",
 		},
 	],
-	shortcuts: [
-		{
-			name: "Add new birthday",
-			short_name: "Add new birthday",
-			description: "Quick way to Add new birthday",
-			url: `${base}user`,
-			icons: [{ src: `${base}logo128.png`, sizes: "128x128" }],
-		},
-	],
+	// shortcuts: [
+	// 	{
+	// 		name: "Add new birthday",
+	// 		short_name: "Add new birthday",
+	// 		description: "Quick way to Add new birthday",
+	// 		url: `${base}user`,
+	// 		icons: [{ src: `${base}logo128.png`, sizes: "128x128" }],
+	// 	},
+	// ],
 	start_url: `${base}`,
 	display: "standalone",
 	theme_color: "#2c3e50",
