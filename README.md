@@ -1,7 +1,9 @@
 ## Important
 
 For the reminder to work you will need to have Background Sync permission enabled in your browser.
-Better use a Chromium browser for it
+Better use Chrome browser for it
+
+https://driantn.github.io/birthday-reminder/
 
 ## Usage
 
