@@ -1,5 +1,5 @@
 import { values } from "idb-keyval";
-import { precacheAndRoute } from "workbox-precaching";
+import { cleanupOutdatedCaches, precacheAndRoute } from "workbox-precaching";
 
 type ItemType = {
 	id: string;
@@ -9,6 +9,7 @@ type ItemType = {
 };
 
 precacheAndRoute(self.__WB_MANIFEST);
+cleanupOutdatedCaches();
 
 const getTodaysBirthdays = async (): Promise<ItemType[]> => {
 	if (!self.indexedDB) return [];
