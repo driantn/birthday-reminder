@@ -52,6 +52,7 @@ const User = () => {
 					type="date"
 					id="bday"
 					name="bday"
+					min={dateParser()}
 					value={user()?.bday || dateParser()}
 					class="border border-gray-400 rounded-md p-2"
 				></input>
